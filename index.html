@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>云岁月对接类目上新指引</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<aside class="sidebar">
+  <div class="brand"><div class="brand-mark">云</div><div><b>云岁月</b><span>男装商家运营工具</span></div></div>
+  <nav id="mainNav"></nav>
+  <div class="sidebar-foot">云岁月对接类目上新指引<br>中文版工作台 · GitHub Pages</div>
+</aside>
+<div class="app">
+<header class="topbar"><div id="crumb">首页 / 工作台</div><div class="status">TEMU 男装运营工作台</div></header>
+<main>
+<section id="home" class="page active">
+  <div class="hero"><span class="eyebrow">云岁月 · 商家工具</span><h1>男装上新、开款、视觉与标题<br><em>一站式运营工作台</em></h1><p>从类目精准路径开始，连接开款图片参考、视觉 Prompt 与标题关键词组合。后续可继续新增数据分析、竞品分析、素材库等功能。</p><button class="btn primary" data-go="category">开始选择上新类目</button></div>
+  <section class="compliance-section">
+    <div class="section-title"><span>合规专区</span><h2>合规信息必知</h2><p>上新前请先完成包装清单、清关属性及洗水唛相关维护。</p></div>
+    <div class="compliance-grid">
+      <a class="compliance-card" href="assets/compliance/包装清单和清关属性维护要点.pdf" target="_blank"><div class="compliance-num">01</div><h3>包装清单和清关属性维护</h3><p>查看维护路径、套装筛选、包装清单及清关属性填写要点。</p><span>点击查看 PDF →</span></a>
+      <a class="compliance-card" href="assets/compliance/洗水唛要点.pdf" target="_blank"><div class="compliance-num">02</div><h3>洗水唛实拍图上传与车缝规范</h3><p>查看实拍图上传规则及成分共用唛/独立唛车缝规范。</p><span>点击查看 PDF →</span></a>
+    </div>
+  </section>
+  <div id="homeModules" class="module-grid"></div>
+</section>
+
+<section id="category" class="page">
+  <div class="page-head"><span>模块 01</span><h2>类目指引</h2><p>已按《云岁月对接路径表》整理，每一条路径独立展示，可一键复制。</p></div>
+  <div class="source-bar"><b>原始类目表：</b><a href="source-files/云岁月对接路径表.xlsx" download>下载 Excel</a><span>｜</span><span>每条路径支持一键复制</span></div>
+  <div id="categoryOverview" class="overview-grid"></div>
+  <div id="categoryDetail"></div>
+</section>
+
+<section id="open" class="page">
+  <div class="page-head"><span>模块 02</span><h2>开款方向</h2><p>套装、正装、棉羽三大类目款式参考；优先展示网页图片，PDF 可直接弹窗查看。</p></div>
+  <div class="open-tabs" id="openTabs"></div>
+  <div id="openDirectionGrid" class="reference-grid"></div>
+</section>
+
+<section id="visual" class="page">
+  <div class="page-head"><span>模块 03</span><h2>视觉优化</h2><p>围绕人模与非人模商品展示方式，组合生成中文电商图片 Prompt。</p></div>
+  <div class="mode-tabs"><button class="active" data-visual-mode="human">人模视觉优化</button><button data-visual-mode="product">非人模视觉优化</button></div>
+  <div id="visualControls" class="control-groups"></div>
+  <div class="output-card"><div class="output-title">生成的视觉 Prompt <button class="btn small" id="copyVisual">复制 Prompt</button></div><textarea id="visualOutput" readonly></textarea></div>
+</section>
+
+<section id="title" class="page">
+  <div class="page-head"><span>模块 04</span><h2>标题优化</h2><p>套装、正装、棉羽三大类目独立词卡，支持多选组合。</p></div>
+  <div class="golden-formula"><div>标题黄金公式</div><strong>[件套规格 (2pcs/3pcs)] + [人群/品类] + [版型/风格] + [材质/图案] + [领型细节] + [包含部件说明] + [多场景/卖点]</strong></div>
+  <div class="source-bar"><b>原始词库：</b><a href="source-files/分维度枚举词_中英对照.xlsx" download>下载《分维度枚举词_中英对照.xlsx》</a></div>
+  <div id="titleCategoryTabs" class="open-tabs"></div>
+  <div id="titleControls" class="control-groups"></div>
+  <div class="output-card"><div class="output-title">生成的英文标题 <button class="btn small" id="copyTitle">复制标题</button></div><textarea id="titleOutput" readonly></textarea><div id="titleCount" class="count"></div></div>
+</section>
+
+<section id="sourcing" class="page"><div class="page-head"><span>模块 05</span><h2>招品 / 回品</h2><p>预留功能入口：后续可接入招品清单、回品判断、趋势数据与选品评分。</p></div><div class="empty-state">该模块已预留，后续直接在 <code>app.js</code> 增加数据和页面组件即可。</div></section>
+</main>
+</div>
+<div id="pdfModal" class="modal"><div class="modal-card"><button id="closePdf" class="close">×</button><iframe id="pdfFrame"></iframe></div></div>
+<script src="data/category-data.js"></script>
+<script src="data/open-direction-data.js"></script>
+<script src="data/title-data.js"></script>
+<script src="data/visual-data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
