@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>云岁月对接类目上新指引</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<aside class="sidebar">
+  <div class="brand"><div class="brand-mark">云</div><div><b>云岁月</b><span>男装商家运营工具</span></div></div>
+  <nav id="mainNav"></nav>
+  <div class="sidebar-foot">云岁月对接类目上新指引<br>中文版工作台 · GitHub Pages</div>
+</aside>
+<div class="app">
+<header class="topbar"><div id="crumb">首页 / 工作台</div><div class="status">TEMU 男装运营工作台</div></header>
+<main>
+<section id="home" class="page active">
+  <div class="hero"><span class="eyebrow">云岁月 · 商家工具</span><h1>男装上新、开款、视觉与标题<br><em>一站式运营工作台</em></h1><p>围绕套装、棉羽、正装三大类目，连接精准上新路径、开款参考、视觉 Prompt、标题组合与后续招品回品。</p><button class="btn primary" data-go="category">开始选择上新类目</button></div>
+  <div id="homeModules" class="module-grid"></div>
+</section>
+
+<section id="category" class="page">
+  <div class="page-head"><span>模块 01</span><h2>类目指引</h2><p>先总览全部路径，再选择套装、正装、棉羽进入精准上新路径。</p></div>
+  <div class="source-bar"><b>原始类目表：</b><a href="source-files/云岁月对接路径表.xlsx" download>下载 Excel</a><span>｜已整理为网页可复制路径</span></div>
+  <div id="categoryOverview" class="overview-grid"></div>
+  <div id="categoryDetail"></div>
+</section>
+
+<section id="open" class="page">
+  <div class="page-head"><span>模块 02</span><h2>开款方向</h2><p>套装、正装、棉羽三大类款式参考。优先显示图片；无图片时自动显示对应 PDF 页面。</p></div>
+  <div class="open-tabs" id="openTabs"></div>
+  <div id="openDirectionGrid" class="reference-grid"></div>
+</section>
+
+<section id="visual" class="page">
+  <div class="page-head"><span>模块 03</span><h2>视觉优化</h2><p>按人模、姿势、风格、场景、配饰、光线与构图组合生成中文电商图片 Prompt。</p></div>
+  <div class="mode-tabs"><button class="mode-btn active" data-mode="human">人模视觉优化</button><button class="mode-btn" data-mode="nonhuman">非人模视觉优化</button></div>
+  <div id="visualControls" class="control-groups"></div>
+  <div class="output-card"><div class="output-title">生成的视觉 Prompt <button class="btn small" id="copyVisual">复制 Prompt</button></div><textarea id="visualOutput" readonly></textarea></div>
+</section>
+
+<section id="title" class="page">
+  <div class="page-head"><span>模块 04</span><h2>标题优化</h2><p>按套装、正装、棉羽选择核心品类词、版型、风格、材质、细节、场景等关键词生成英文标题。</p></div>
+  <div class="golden-formula"><b>标题黄金公式：</b><span>[件套规格 (2pcs/3pcs)] + [人群/品类] + [版型/风格] + [材质/图案] + [领型细节] + [包含部件说明] + [多场景/卖点]</span></div>
+  <div id="titleCategoryTabs" class="open-tabs"></div>
+  <div id="titleControls" class="control-groups"></div>
+  <div class="output-card"><div class="output-title">生成的英文标题 <button class="btn small" id="copyTitle">复制标题</button></div><textarea id="titleOutput" readonly></textarea><div id="titleCount" class="count"></div></div>
+</section>
+
+<section id="sourcing" class="page">
+  <div class="page-head"><span>模块 05</span><h2>招品 / 回品</h2><p>预留招品清单、回品判断、趋势数据与选品评分入口。</p></div>
+  <div class="empty-state"><h3>招品 / 回品功能已预留</h3><p>后续可直接在 app.js 中继续增加招品链接、回品规则、趋势数据和评分模型。</p></div>
+</section>
+</main>
+</div>
+
+<div id="pdfModal" class="modal"><div class="modal-card"><button id="closePdf" class="close">×</button><iframe id="pdfFrame"></iframe></div></div>
+<script src="data/category-data.js"></script>
+<script src="data/open-direction-data.js"></script>
+<script src="data/title-data.js"></script>
+<script src="data/visual-data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
