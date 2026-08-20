@@ -1,0 +1,2033 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>🎥 男式正装 AI 图片优化与提示词中心 | TEMU · SHEIN · Amazon 爆款视觉指南</title>
+
+    <style>
+        :root {
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --accent: #0284c7;
+            --accent-hover: #0369a1;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                "Helvetica Neue",
+                Arial,
+                sans-serif,
+                "Microsoft YaHei";
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        header {
+            background: linear-gradient(
+                135deg,
+                var(--primary) 0%,
+                var(--primary-light) 100%
+            );
+            color: #ffffff;
+            padding: 32px 20px;
+            border-bottom: 4px solid var(--accent);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            font-size: 1.85rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+        }
+
+        .notice-bar {
+            background-color: #e0f2fe;
+            border-left: 4px solid var(--accent);
+            color: #0369a1;
+            padding: 12px 20px;
+            max-width: 1200px;
+            margin: 20px auto 0;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .main-layout {
+            max-width: 1200px;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: minmax(0, 1.9fr) minmax(320px, 1.1fr);
+            gap: 20px;
+            padding: 0 15px;
+            align-items: start;
+        }
+
+        .control-panel,
+        .output-panel {
+            min-width: 0;
+        }
+
+        .output-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: stretch;
+        }
+
+        .output-panel .card {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 900px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .card h2 {
+            font-size: 1.15rem;
+            color: var(--primary);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        select,
+        input[type="text"] {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.88rem;
+            background-color: #fff;
+            color: var(--text-main);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        select:focus,
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        @media (max-width: 600px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 6px;
+        }
+
+        .tag-btn {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            color: var(--primary);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            user-select: none;
+        }
+
+        .tag-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background-color: #f0f9ff;
+        }
+
+        .tag-btn.active {
+            background-color: var(--accent);
+            color: #ffffff;
+            border-color: var(--accent);
+        }
+
+        .prompt-output-box {
+            background-color: #0f172a;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            font-family:
+                "Microsoft YaHei",
+                "PingFang SC",
+                "Courier New",
+                monospace;
+            font-size: 0.88rem;
+            min-height: 120px;
+            word-break: break-word;
+            white-space: pre-wrap;
+            margin-bottom: 12px;
+            line-height: 1.8;
+            border: 1px solid #334155;
+        }
+
+        /* ④ Prompt 与 ⑤ 爆款视觉独立排版，防止任何重叠 */
+        .prompt-card {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .prompt-card .prompt-output-box {
+            width: 100%;
+            min-height: 260px;
+            max-height: 520px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            margin-bottom: 14px;
+            scrollbar-gutter: stable;
+        }
+
+        .visual-card {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .visual-card h2 {
+            color: #d97706;
+        }
+
+        .visual-card .visual-tip-box {
+            width: 100%;
+        }
+
+        @media (max-width: 900px) {
+            .output-panel {
+                gap: 20px;
+            }
+
+            .prompt-card .prompt-output-box {
+                max-height: none;
+                overflow: visible;
+            }
+        }
+
+        .copy-btn {
+            width: 100%;
+            background-color: var(--accent);
+            color: #ffffff;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .copy-btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .tips-list {
+            list-style: none;
+        }
+
+        .tips-list li {
+            margin-bottom: 14px;
+            padding-left: 20px;
+            position: relative;
+            font-size: 0.9rem;
+            color: #334155;
+        }
+
+        .tips-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .tips-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .visual-tip-box {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            border-radius: 6px;
+            padding: 16px;
+        }
+
+        .full-width-section {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+
+        .kw-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .kw-table th {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .kw-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        .kw-table tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .badge-platform {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 4px;
+            margin-bottom: 3px;
+        }
+
+        .plat-amazon {
+            background-color: #ffedd5;
+            color: #c2410c;
+        }
+
+        .plat-temu {
+            background-color: #fef08a;
+            color: #854d0e;
+        }
+
+        .plat-shein {
+            background-color: #fce7f3;
+            color: #be185d;
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            font-size: 0.88rem;
+        }
+
+        @media (max-width: 800px) {
+            .platform-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .platform-card {
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>🎥 男式正装 AI 图片优化提示词中心</h1>
+        <p>
+            基于 TEMU · SHEIN · Amazon 男式正装路径下的西装、单西、塔克西多、礼服、西裤、
+            马甲等商品方向，生成中文版 AI 电商视觉 Prompt。
+        </p>
+    </div>
+</header>
+
+<div class="notice-bar">
+    💡
+    <strong>男式正装优化核心原则：</strong>
+    先保证“服装版型与结构准确”，包括肩线、驳领、扣数、开衩、裤线与面料纹理；
+    再通过 AI 强化“真实材质、高级商业光影、模特气质与场景适配”，严禁虚构商品不存在的设计。
+</div>
+
+
+<div class="main-layout">
+
+    <!-- 左侧：控制面板 -->
+    <div class="control-panel">
+
+        <!-- ① 商品定义 -->
+        <div class="card">
+
+            <h2>① 先定义商品</h2>
+
+            <div class="form-group">
+                <label>一键加载男式正装爆款预设：</label>
+
+                <select id="presetSelect" onchange="applyPreset()">
+                    <option value="custom">-- 自定义男式正装配置 --</option>
+
+                    <option value="weddingTux">
+                        婚礼/晚宴黑色塔克西多三件套
+                    </option>
+
+                    <option value="businessNavy">
+                        商务精英修身藏青西装两件套
+                    </option>
+
+                    <option value="temuStretch">
+                        高弹抗皱免烫男士正装西裤
+                    </option>
+
+                    <option value="wallStreet">
+                        华尔街细条纹双排扣商务西装
+                    </option>
+
+                    <option value="linenSummer">
+                        夏季度假/户外婚礼亚麻单西
+                    </option>
+
+                    <option value="velvetGala">
+                        毕业舞会/晚宴丝绒礼服西装
+                    </option>
+
+                    <option value="smartCasual">
+                        商务休闲轻便弹力单西
+                    </option>
+
+                    <option value="groomSuit">
+                        男士婚礼新郎三件套
+                    </option>
+
+                    <option value="blackBusiness">
+                        经典黑色商务正式西装
+                    </option>
+
+                    <option value="dressPants">
+                        北美高转化弹力正装西裤
+                    </option>
+                </select>
+            </div>
+
+
+            <div class="grid-2">
+
+                <div class="form-group">
+                    <label>男式正装具体品类：</label>
+
+                    <select id="categorySelect" onchange="generatePrompt()">
+
+                        <option value="男士正装三件套（西装外套+马甲+西裤）">
+                            男士正装三件套
+                        </option>
+
+                        <option value="男士正装两件套（西装外套+西裤）">
+                            男士正装两件套
+                        </option>
+
+                        <option value="男士修身商务西装">
+                            男士修身商务西装
+                        </option>
+
+                        <option value="男士经典商务西装">
+                            男士经典商务西装
+                        </option>
+
+                        <option value="男士双排扣西装">
+                            男士双排扣商务西装
+                        </option>
+
+                        <option value="男士商务休闲单西/西服外套">
+                            男士商务休闲单西
+                        </option>
+
+                        <option value="男士塔克西多礼服，缎面翻领">
+                            男士塔克西多礼服
+                        </option>
+
+                        <option value="男士婚礼新郎西装">
+                            男士婚礼新郎西装
+                        </option>
+
+                        <option value="男士伴郎西装套装">
+                            男士伴郎西装套装
+                        </option>
+
+                        <option value="男士晚宴礼服西装外套">
+                            男士晚宴礼服西装外套
+                        </option>
+
+                        <option value="男士毕业舞会礼服西装">
+                            男士毕业舞会礼服西装
+                        </option>
+
+                        <option value="男士正装西裤/西服裤">
+                            男士正装西裤
+                        </option>
+
+                        <option value="男士高弹抗皱免烫正装西裤">
+                            男士高弹抗皱免烫西裤
+                        </option>
+
+                        <option value="男士西装马甲/正装背心">
+                            男士西装马甲
+                        </option>
+
+                        <option value="男士长袖正装衬衫">
+                            男士长袖正装衬衫
+                        </option>
+
+                        <option value="男士法式袖口正装衬衫">
+                            男士法式袖口正装衬衫
+                        </option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label>版型剪裁与领型：</label>
+
+                    <select id="fitSelect" onchange="generatePrompt()">
+
+                        <option value="现代修身剪裁，肩线挺括，整体利落有型">
+                            现代修身款 + 挺括肩线
+                        </option>
+
+                        <option value="经典正统剪裁，自然肩线，比例均衡">
+                            经典正统剪裁 + 自然肩
+                        </option>
+
+                        <option value="双排扣剪裁，宽戗驳领，商务精英感">
+                            双排扣 + 宽戗驳领
+                        </option>
+
+                        <option value="单排两粒扣剪裁，经典平驳领">
+                            单排两粒扣 + 平驳领
+                        </option>
+
+                        <option value="单排一粒扣，缎面青果领，正式礼服剪裁">
+                            单扣 + 缎面青果领
+                        </option>
+
+                        <option value="修身直筒裤型，裤线清晰，裤脚自然垂坠">
+                            修身直筒裤型 + 清晰裤线
+                        </option>
+
+                        <option value="锥形修身裤型，舒适弹力腰部设计">
+                            锥形修身裤型 + 弹力腰部
+                        </option>
+
+                        <option value="意式轻构柔软剪裁，自然垂坠，不僵硬">
+                            意式轻构自然剪裁
+                        </option>
+
+                        <option value="现代宽松剪裁，保留高级正装轮廓">
+                            现代宽松正装剪裁
+                        </option>
+                    </select>
+                </div>
+
+            </div>
+
+
+            <div class="grid-2">
+
+                <div class="form-group">
+                    <label>材质与面料质感：</label>
+
+                    <select id="fabricSelect" onchange="generatePrompt()">
+
+                        <option value="高质感精纺羊毛混纺，织纹细腻自然">
+                            精纺羊毛混纺
+                        </option>
+
+                        <option value="四向高弹、抗皱、免烫功能性面料">
+                            四向高弹抗皱免烫面料
+                        </option>
+
+                        <option value="透气亚麻棉混纺，自然纤维织纹">
+                            透气亚麻棉混纺
+                        </option>
+
+                        <option value="高级丝绒面料，具有柔和自然光泽">
+                            高级丝绒面料
+                        </option>
+
+                        <option value="平整哑光涤粘混纺，垂坠感自然">
+                            哑光涤粘垂坠面料
+                        </option>
+
+                        <option value="细条纹羊毛混纺，纹理清晰细致">
+                            细条纹羊毛混纺
+                        </option>
+
+                        <option value="西装主体哑光面料搭配高级缎面翻领">
+                            哑光主体 + 缎面翻领
+                        </option>
+
+                        <option value="轻量化弹力混纺面料，舒适透气">
+                            轻量弹力混纺面料
+                        </option>
+
+                        <option value="羊毛质感纹理，表面细腻，真实高级">
+                            高级羊毛纹理面料
+                        </option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label>主打色彩与图案：</label>
+
+                    <select id="colorSelect" onchange="generatePrompt()">
+
+                        <option value="经典藏青色">
+                            藏青 / 海军蓝
+                        </option>
+
+                        <option value="深炭灰色">
+                            深炭灰
+                        </option>
+
+                        <option value="纯正优雅黑色">
+                            经典优雅黑
+                        </option>
+
+                        <option value="皇家宝蓝色">
+                            皇家宝蓝
+                        </option>
+
+                        <option value="深墨绿色">
+                            墨绿 / 深翡翠绿
+                        </option>
+
+                        <option value="酒红色/勃艮第红">
+                            酒红 / 勃艮第红
+                        </option>
+
+                        <option value="米白色/奶油色">
+                            米白 / 奶油色
+                        </option>
+
+                        <option value="浅灰色">
+                            浅灰色
+                        </option>
+
+                        <option value="中灰色">
+                            中灰色
+                        </option>
+
+                        <option value="藏青底细白条纹">
+                            藏青细条纹
+                        </option>
+
+                        <option value="灰色威尔士亲王格纹">
+                            灰色威尔士亲王格纹
+                        </option>
+                    </select>
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>服装核心卖点标签（多选，可自由点击）：</label>
+
+                <div class="tags-container" id="sellingPoints">
+
+                    <span class="tag-btn active" onclick="toggleTag(this)">
+                        挺括肩线与胸部轮廓
+                    </span>
+
+                    <span class="tag-btn active" onclick="toggleTag(this)">
+                        平整抗皱自然垂坠
+                    </span>
+
+                    <span class="tag-btn active" onclick="toggleTag(this)">
+                        精细驳领走线
+                    </span>
+
+                    <span class="tag-btn" onclick="toggleTag(this)">
+                        四向高弹舒适活动
+                    </span>
+
+                    <span class="tag-btn" onclick="toggleTag(this)">
+                        抗皱免烫易打理
+                    </span>
+
+                    <span class="tag-btn" onclick="toggleTag(this)">
+                        隐形弹性腰头
+                    </span>
+
+                    <span class="tag-btn" onclick="toggleTag(this)">
+                        双侧开衩设计
+                    </span>
+
+                    <span class="tag-btn" onclick="toggleTag(this)">
+                        四粒扣袖口细节
+                    </span>
+
+                    <span class="tag-btn" onclick="toggleTag(this)">
+                        功能性真口袋
+                    </span>
+
+                    <span class="tag-btn" onclick="toggleTag(this)">
+                        清晰笔直裤中褶线
+                    </span>
+
+                    <span class="tag-btn" onclick="toggleTag(this)">
+                        高级缎面翻领
+                    </span>
+
+                    <span class="tag-btn" onclick="toggleTag(this)">
+                        透气舒适内衬
+                    </span>
+
+                    <span class="tag-btn" onclick="toggleTag(this)">
+                        真实羊毛织纹
+                    </span>
+
+                    <span class="tag-btn" onclick="toggleTag(this)">
+                        自然裤脚垂坠感
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>图片生成目标 / 镜头视角（单选）：</label>
+
+                <div class="tags-container" id="aiGoal">
+
+                    <span class="tag-btn active"
+                          onclick="selectSingleTag(this, 'aiGoal')">
+                        真人男模全身展示图
+                    </span>
+
+                    <span class="tag-btn"
+                          onclick="selectSingleTag(this, 'aiGoal')">
+                        极简棚拍电商主图
+                    </span>
+
+                    <span class="tag-btn"
+                          onclick="selectSingleTag(this, 'aiGoal')">
+                        高端商务场景生活图
+                    </span>
+
+                    <span class="tag-btn"
+                          onclick="selectSingleTag(this, 'aiGoal')">
+                        婚礼/晚宴正式场景图
+                    </span>
+
+                    <span class="tag-btn"
+                          onclick="selectSingleTag(this, 'aiGoal')">
+                        面料与领口走线微距特写
+                    </span>
+
+                    <span class="tag-btn"
+                          onclick="selectSingleTag(this, 'aiGoal')">
+                        多角度版型展示图
+                    </span>
+
+                    <span class="tag-btn"
+                          onclick="selectSingleTag(this, 'aiGoal')">
+                        买家秀动态走秀构图
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ② 视觉语言与模特 -->
+        <div class="card">
+
+            <h2>② 选择视觉语言与模特细节</h2>
+
+
+            <div class="grid-2">
+
+                <div class="form-group">
+
+                    <label>男模形象：</label>
+
+                    <select id="modelEthnicity" onchange="generatePrompt()">
+
+                        <option value="25-35岁欧美商务精英男模，五官立体，干练自信，真实自然">
+                            欧美商务精英男模
+                        </option>
+
+                        <option value="25-35岁欧美年轻男模，现代时尚，身材比例匀称">
+                            欧美年轻时尚男模
+                        </option>
+
+                        <option value="25-35岁亚裔职场商务男模，干净利落，自信自然">
+                            亚裔商务职场男模
+                        </option>
+
+                        <option value="25-35岁黑人高挑时尚男模，身材修长，现代高级">
+                            黑人高挑时尚男模
+                        </option>
+
+                        <option value="35-45岁意式成熟商务男模，具有轻微胡茬，成熟优雅">
+                            意式成熟商务男模
+                        </option>
+
+                        <option value="30-40岁成熟企业高管形象男模，稳重专业">
+                            成熟企业高管男模
+                        </option>
+
+                        <option value="无头假人模特展示，重点突出服装结构与版型">
+                            无头假人模特展示
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>模特姿态与动作：</label>
+
+                    <select id="modelPose" onchange="generatePrompt()">
+
+                        <option value="自然自信站立，一只手自然插入口袋，完整展示服装比例">
+                            自然站姿 + 手插口袋
+                        </option>
+
+                        <option value="自然向前行走，另一只手轻触西装纽扣，展示动态垂坠感">
+                            自然行走 + 调整纽扣
+                        </option>
+
+                        <option value="正面直立，全身完整展示，双臂自然放松">
+                            正面标准全身展示
+                        </option>
+
+                        <option value="微微侧身，展示肩线、胸部轮廓与侧面剪裁">
+                            侧身展示肩线轮廓
+                        </option>
+
+                        <option value="一只手调整袖口，身体轻微侧转，突出袖口和西装结构">
+                            调整袖扣姿态
+                        </option>
+
+                        <option value="自然坐姿，保持服装不变形，展示商务成熟氛围">
+                            高级商务自然坐姿
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="grid-2">
+
+                <div class="form-group">
+
+                    <label>场景与背景环境：</label>
+
+                    <select id="sceneSelect" onchange="generatePrompt()">
+
+                        <option value="现代高层玻璃幕墙商务办公室，背景城市虚化">
+                            高档摩天大楼办公室
+                        </option>
+
+                        <option value="五星级酒店奢华大堂，柔和暖色环境光">
+                            五星级酒店奢华大堂
+                        </option>
+
+                        <option value="高端婚礼场地，自然草坪与庄园背景柔焦">
+                            婚礼草坪庄园
+                        </option>
+
+                        <option value="纯白色无缝摄影棚背景，无杂物，商品绝对突出">
+                            纯白极简电商主图背景
+                        </option>
+
+                        <option value="浅灰色无缝摄影棚背景，带自然柔和落地阴影">
+                            极简浅灰摄影棚
+                        </option>
+
+                        <option value="欧洲现代商务街区建筑背景，画面干净高级">
+                            欧洲商务街拍
+                        </option>
+
+                        <option value="高级酒店宴会厅，精致灯光与正式晚宴氛围">
+                            高级晚宴宴会厅
+                        </option>
+
+                        <option value="高级私人商务会所，深色木饰面，背景适度虚化">
+                            高端私人商务会所
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>摄影灯光与调性：</label>
+
+                    <select id="lightingSelect" onchange="generatePrompt()">
+
+                        <option value="柔和商业摄影柔光，均衡高光，自然阴影过渡">
+                            商业柔光箱光影
+                        </option>
+
+                        <option value="肩部具有轻微侧逆轮廓光，突出西装肩线与结构">
+                            侧逆轮廓光
+                        </option>
+
+                        <option value="柔和自然窗光，真实舒适，自然明暗过渡">
+                            自然窗光
+                        </option>
+
+                        <option value="高级时尚杂志摄影光影，层次分明但不过度HDR">
+                            高级杂志时尚光影
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="grid-2">
+
+                <div class="form-group">
+
+                    <label>画幅比例：</label>
+
+                    <select id="aspectRatio" onchange="generatePrompt()">
+
+                        <option value="3:4">
+                            3:4 竖图
+                        </option>
+
+                        <option value="4:5">
+                            4:5 竖图
+                        </option>
+
+                        <option value="1:1">
+                            1:1 方图
+                        </option>
+
+                        <option value="16:9">
+                            16:9 横图
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>渲染质量：</label>
+
+                    <select id="qualitySelect" onchange="generatePrompt()">
+
+                        <option value="写实商业时装摄影级画质，超清细节，真实面料纹理">
+                            商业摄影级高清画质
+                        </option>
+
+                        <option value="超清8K级细节表现，面料织纹清晰，商品边缘锐利">
+                            超清细节与面料纹理
+                        </option>
+
+                        <option value="真实电商产品摄影，色彩准确，自然人体比例">
+                            高真实电商摄影
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ③ AI控制 -->
+        <div class="card">
+
+            <h2>③ AI 生成控制</h2>
+
+            <div class="form-group">
+
+                <label>服装结构保留与一致性策略：</label>
+
+                <select id="preserveControl" onchange="generatePrompt()">
+
+                    <option value="严格保持原商品的西装剪裁、肩线结构、驳领形状、纽扣数量、开衩设计、裤型比例和所有细节完全一致">
+                        100% 严格保留商品结构与正装版型
+                    </option>
+
+                    <option value="严格保留原商品轮廓、版型、领型与真实面料织纹，仅允许符合真实人体活动规律的自然微褶皱">
+                        保留商品结构 + 允许自然微褶皱
+                    </option>
+
+                    <option value="严格保持商品所有设计不变，仅优化背景、光影、模特姿态和商业摄影质感">
+                        仅优化背景与商业视觉
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- 右侧：Prompt输出 -->
+    <div class="output-panel">
+
+        <!-- ④ 独立 Prompt 卡片 -->
+        <div class="card prompt-card">
+
+            <h2>④ 可直接复制给 AI 的完整中文 Prompt</h2>
+
+            <p style="
+                font-size: 0.8rem;
+                color: var(--text-muted);
+                margin-bottom: 10px;
+            ">
+                点击下方按钮可直接复制完整中文 Prompt，已自动包含【负向提示词】，无需单独复制。
+            </p>
+
+            <div class="prompt-output-box" id="promptResult">
+                正在实时生成中文 Prompt...
+            </div>
+
+            <button class="copy-btn" onclick="copyPrompt()">
+                📋 一键复制完整中文 Prompt
+            </button>
+
+        </div>
+
+        <!-- ⑤ 独立爆款视觉卡片 -->
+        <div class="card visual-card">
+
+            <h2>⑤ 爆款正装视觉应该如何</h2>
+
+            <div class="visual-tip-box">
+
+                <ul class="tips-list">
+
+                    <li>
+                        <strong>肩线挺括决胜负：</strong>
+                        正装缩略图第一眼看“肩部与胸部轮廓”，线条必须平整有型，绝不能出现塌肩或凹陷。
+                    </li>
+
+                    <li>
+                        <strong>主图低干扰干净底：</strong>
+                        Amazon/TEMU 极简主图优先使用浅灰色/纯白无杂物背景，突显服装本身质感。
+                    </li>
+
+                    <li>
+                        <strong>买家比例决策支持：</strong>
+                        通过真人模特展示衣长、下摆开衩与裤脚垂坠感，帮买家直观判断尺码是否精准。
+                    </li>
+
+                    <li>
+                        <strong>面料痛点近景可视化：</strong>
+                        对“四向弹力、抗皱免烫、羊毛纹理”进行微距特写，极大提升点击与转化。
+                    </li>
+
+                    <li>
+                        <strong>场景严格匹配服装属性：</strong>
+                        塔克西多礼服配合五星级酒店/婚礼；商务单西匹配高楼办公室/街拍。
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ⑥ -->
+<div class="full-width-section">
+
+    <div class="card">
+
+        <h2>⑥ TEMU · SHEIN · Amazon 爆款男式正装关键词提炼</h2>
+
+        <p style="
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        ">
+            以下为男式正装路径下可用于商品标题、SEO、选品分析与开款方向整理的关键词：
+        </p>
+
+
+        <table class="kw-table">
+
+            <thead>
+                <tr>
+                    <th>关键词大类</th>
+                    <th>英文搜索词</th>
+                    <th>中文含义</th>
+                    <th>搜索意图 / 商品属性</th>
+                    <th>适配平台</th>
+                </tr>
+            </thead>
+
+
+            <tbody>
+
+                <tr>
+                    <td><strong>核心主词</strong></td>
+                    <td>mens suit / men's suits</td>
+                    <td>男士西装</td>
+                    <td>基础类目核心搜索词</td>
+                    <td>
+                        <span class="badge-platform plat-amazon">Amazon</span>
+                        <span class="badge-platform plat-temu">TEMU</span>
+                        <span class="badge-platform plat-shein">SHEIN</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong>套装主词</strong></td>
+                    <td>mens suits 3 piece / 3 piece suit for men</td>
+                    <td>男士西装三件套</td>
+                    <td>西装+马甲+西裤完整套装</td>
+                    <td>
+                        <span class="badge-platform plat-amazon">Amazon</span>
+                        <span class="badge-platform plat-temu">TEMU</span>
+                        <span class="badge-platform plat-shein">SHEIN</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong>套装主词</strong></td>
+                    <td>2 piece suit for men / mens suit set</td>
+                    <td>男士西装两件套</td>
+                    <td>商务、婚礼、日常正式场景</td>
+                    <td>
+                        <span class="badge-platform plat-amazon">Amazon</span>
+                        <span class="badge-platform plat-temu">TEMU</span>
+                        <span class="badge-platform plat-shein">SHEIN</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong>单西</strong></td>
+                    <td>mens blazer jacket / casual blazer for men</td>
+                    <td>男士西装外套 / 休闲单西</td>
+                    <td>商务休闲与轻正式穿搭</td>
+                    <td>
+                        <span class="badge-platform plat-amazon">Amazon</span>
+                        <span class="badge-platform plat-shein">SHEIN</span>
+                        <span class="badge-platform plat-temu">TEMU</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong>礼服</strong></td>
+                    <td>tuxedo suit for men / mens tuxedo</td>
+                    <td>男士塔克西多礼服</td>
+                    <td>婚礼、晚宴、正式活动</td>
+                    <td>
+                        <span class="badge-platform plat-amazon">Amazon</span>
+                        <span class="badge-platform plat-shein">SHEIN</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong>婚礼场景</strong></td>
+                    <td>wedding suit for men / groom suit</td>
+                    <td>男士婚礼西装 / 新郎西装</td>
+                    <td>婚礼、新郎、伴郎高转化场景词</td>
+                    <td>
+                        <span class="badge-platform plat-amazon">Amazon</span>
+                        <span class="badge-platform plat-shein">SHEIN</span>
+                        <span class="badge-platform plat-temu">TEMU</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong>活动场景</strong></td>
+                    <td>prom suit for men / prom tuxedo</td>
+                    <td>男士毕业舞会西装</td>
+                    <td>舞会、毕业季、正式派对</td>
+                    <td>
+                        <span class="badge-platform plat-amazon">Amazon</span>
+                        <span class="badge-platform plat-shein">SHEIN</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong>裤装核心词</strong></td>
+                    <td>mens dress pants / suit trousers</td>
+                    <td>男士正装西裤</td>
+                    <td>商务办公、通勤、正式场景</td>
+                    <td>
+                        <span class="badge-platform plat-temu">TEMU</span>
+                        <span class="badge-platform plat-amazon">Amazon</span>
+                        <span class="badge-platform plat-shein">SHEIN</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong>裤装功能词</strong></td>
+                    <td>stretch dress pants / stretch suit pants</td>
+                    <td>弹力正装西裤</td>
+                    <td>强调舒适活动与通勤需求</td>
+                    <td>
+                        <span class="badge-platform plat-temu">TEMU</span>
+                        <span class="badge-platform plat-amazon">Amazon</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong>裤装功能词</strong></td>
+                    <td>wrinkle free dress pants / non iron pants</td>
+                    <td>抗皱免烫西裤</td>
+                    <td>强调易打理与商务通勤</td>
+                    <td>
+                        <span class="badge-platform plat-temu">TEMU</span>
+                        <span class="badge-platform plat-amazon">Amazon</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong>弹力卖点</strong></td>
+                    <td>4 way stretch pants / stretch suit</td>
+                    <td>四向高弹西裤 / 弹力西装</td>
+                    <td>舒适度与活动自由度</td>
+                    <td>
+                        <span class="badge-platform plat-temu">TEMU</span>
+                        <span class="badge-platform plat-amazon">Amazon</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong>腰部设计</strong></td>
+                    <td>expandable waist / flex waistband</td>
+                    <td>弹性腰头 / 可扩展腰围</td>
+                    <td>提升腰部舒适度与尺码适配性</td>
+                    <td>
+                        <span class="badge-platform plat-temu">TEMU</span>
+                        <span class="badge-platform plat-amazon">Amazon</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong>版型剪裁</strong></td>
+                    <td>slim fit suit / tailored fit suit</td>
+                    <td>修身西装 / 合体剪裁西装</td>
+                    <td>现代商务正装主流版型</td>
+                    <td>
+                        <span class="badge-platform plat-amazon">Amazon</span>
+                        <span class="badge-platform plat-temu">TEMU</span>
+                        <span class="badge-platform plat-shein">SHEIN</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong>版型剪裁</strong></td>
+                    <td>modern fit suit / classic fit suit</td>
+                    <td>现代版型 / 经典版型西装</td>
+                    <td>不同体型与商务人群需求</td>
+                    <td>
+                        <span class="badge-platform plat-amazon">Amazon</span>
+                        <span class="badge-platform plat-temu">TEMU</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong>领型设计</strong></td>
+                    <td>peak lapel suit</td>
+                    <td>戗驳领西装</td>
+                    <td>强调正式感与商务气场</td>
+                    <td>
+                        <span class="badge-platform plat-amazon">Amazon</span>
+                        <span class="badge-platform plat-shein">SHEIN</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong>领型设计</strong></td>
+                    <td>notch lapel blazer</td>
+                    <td>平驳领西装</td>
+                    <td>经典商务单西设计</td>
+                    <td>
+                        <span class="badge-platform plat-amazon">Amazon</span>
+                        <span class="badge-platform plat-temu">TEMU</span>
+                        <span class="badge-platform plat-shein">SHEIN</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong>双排扣</strong></td>
+                    <td>double breasted suit for men</td>
+                    <td>男士双排扣西装</td>
+                    <td>复古、高级、商务精英风格</td>
+                    <td>
+                        <span class="badge-platform plat-amazon">Amazon</span>
+                        <span class="badge-platform plat-shein">SHEIN</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong>面料词</strong></td>
+                    <td>wool blend suit</td>
+                    <td>羊毛混纺西装</td>
+                    <td>高级材质与正式商务定位</td>
+                    <td>
+                        <span class="badge-platform plat-amazon">Amazon</span>
+                        <span class="badge-platform plat-shein">SHEIN</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong>面料词</strong></td>
+                    <td>linen suit / linen blazer men</td>
+                    <td>亚麻西装 / 男士亚麻单西</td>
+                    <td>夏季、度假、户外婚礼</td>
+                    <td>
+                        <span class="badge-platform plat-amazon">Amazon</span>
+                        <span class="badge-platform plat-shein">SHEIN</span>
+                        <span class="badge-platform plat-temu">TEMU</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong>面料词</strong></td>
+                    <td>velvet dinner jacket</td>
+                    <td>丝绒晚宴西装外套</td>
+                    <td>晚宴、派对、婚礼正式场景</td>
+                    <td>
+                        <span class="badge-platform plat-amazon">Amazon</span>
+                        <span class="badge-platform plat-shein">SHEIN</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong>图案词</strong></td>
+                    <td>pinstripe suit for men</td>
+                    <td>男士细条纹西装</td>
+                    <td>商务精英、金融职场风格</td>
+                    <td>
+                        <span class="badge-platform plat-amazon">Amazon</span>
+                        <span class="badge-platform plat-shein">SHEIN</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong>配件单品</strong></td>
+                    <td>mens suit vest / waistcoat for men</td>
+                    <td>男士西装马甲</td>
+                    <td>三件套、婚礼与正式搭配</td>
+                    <td>
+                        <span class="badge-platform plat-amazon">Amazon</span>
+                        <span class="badge-platform plat-temu">TEMU</span>
+                        <span class="badge-platform plat-shein">SHEIN</span>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<!-- ⑦ -->
+<div class="full-width-section">
+
+    <div class="card">
+
+        <h2>⑦ 平台视觉策略说明</h2>
+
+        <div class="platform-grid">
+
+            <div class="platform-card"
+                 style="
+                    background: #fff3ed;
+                    border-top: 3px solid #c2410c;
+                 ">
+
+                <h3 style="color: #c2410c; margin-bottom: 8px;">
+                    Amazon 策略
+                </h3>
+
+                <p>
+                    <strong>• 结构真实性优先：</strong>
+                    主图应清晰展示完整商品，避免背景干扰，
+                    突出肩线、领型、纽扣、裤型等真实结构。
+                    <br><br>
+
+                    <strong>• 降低尺码决策成本：</strong>
+                    通过真人模特展示完整比例、
+                    衣长、裤长与整体版型。
+                    <br><br>
+
+                    <strong>• 卖点细节可视化：</strong>
+                    适合增加面料纹理、抗皱、
+                    弹力腰头、裤线等细节展示。
+                </p>
+
+            </div>
+
+
+            <div class="platform-card"
+                 style="
+                    background: #fefce8;
+                    border-top: 3px solid #854d0e;
+                 ">
+
+                <h3 style="color: #854d0e; margin-bottom: 8px;">
+                    TEMU 策略
+                </h3>
+
+                <p>
+                    <strong>• 第一眼识别商品：</strong>
+                    商品本体必须突出，
+                    背景不能抢夺视觉注意力。
+                    <br><br>
+
+                    <strong>• 功能卖点快速视觉化：</strong>
+                    四向弹力、抗皱免烫、
+                    弹性腰头等卖点应通过细节近景表达。
+                    <br><br>
+
+                    <strong>• 强调高性价比感：</strong>
+                    画面需要真实、清晰、干净，
+                    重点突出商品本身材质与结构。
+                </p>
+
+            </div>
+
+
+            <div class="platform-card"
+                 style="
+                    background: #fce7f3;
+                    border-top: 3px solid #be185d;
+                 ">
+
+                <h3 style="color: #be185d; margin-bottom: 8px;">
+                    SHEIN 策略
+                </h3>
+
+                <p>
+                    <strong>• 时尚氛围更重要：</strong>
+                    强调现代剪裁、双排扣、
+                    戗驳领、缎面礼服领等视觉趋势。
+                    <br><br>
+
+                    <strong>• Lookbook 风格展示：</strong>
+                    可通过欧美街拍、
+                    高级酒店、城市建筑等场景强化穿搭氛围。
+                    <br><br>
+
+                    <strong>• 模特穿搭完整呈现：</strong>
+                    展示西装整体比例、
+                    肩线、裤脚与搭配层次，
+                    提升买家代入感。
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<footer>
+    <p>
+        TEMU / SHEIN / Amazon 男式 Formal Wear AI Prompt Center · 2026
+    </p>
+</footer>
+
+
+<script>
+
+    /* =========================
+       标签选择
+    ========================= */
+
+    function toggleTag(el) {
+        el.classList.toggle("active");
+        generatePrompt();
+    }
+
+
+    function selectSingleTag(el, containerId) {
+
+        const container = document.getElementById(containerId);
+        const tags = container.getElementsByClassName("tag-btn");
+
+        for (let tag of tags) {
+            tag.classList.remove("active");
+        }
+
+        el.classList.add("active");
+
+        generatePrompt();
+    }
+
+
+    /* =========================
+       爆款预设
+    ========================= */
+
+    function applyPreset() {
+
+        const preset =
+            document.getElementById("presetSelect").value;
+
+
+        if (preset === "weddingTux") {
+
+            document.getElementById("categorySelect").value =
+                "男士塔克西多礼服，缎面翻领";
+
+            document.getElementById("fitSelect").value =
+                "单排一粒扣，缎面青果领，正式礼服剪裁";
+
+            document.getElementById("fabricSelect").value =
+                "西装主体哑光面料搭配高级缎面翻领";
+
+            document.getElementById("colorSelect").value =
+                "纯正优雅黑色";
+
+            document.getElementById("sceneSelect").value =
+                "五星级酒店奢华大堂，柔和暖色环境光";
+
+        }
+
+
+        else if (preset === "businessNavy") {
+
+            document.getElementById("categorySelect").value =
+                "男士正装两件套（西装外套+西裤）";
+
+            document.getElementById("fitSelect").value =
+                "现代修身剪裁，肩线挺括，整体利落有型";
+
+            document.getElementById("fabricSelect").value =
+                "四向高弹、抗皱、免烫功能性面料";
+
+            document.getElementById("colorSelect").value =
+                "经典藏青色";
+
+            document.getElementById("sceneSelect").value =
+                "现代高层玻璃幕墙商务办公室，背景城市虚化";
+
+        }
+
+
+        else if (preset === "temuStretch") {
+
+            document.getElementById("categorySelect").value =
+                "男士高弹抗皱免烫正装西裤";
+
+            document.getElementById("fitSelect").value =
+                "锥形修身裤型，舒适弹力腰部设计";
+
+            document.getElementById("fabricSelect").value =
+                "四向高弹、抗皱、免烫功能性面料";
+
+            document.getElementById("colorSelect").value =
+                "深炭灰色";
+
+            document.getElementById("sceneSelect").value =
+                "浅灰色无缝摄影棚背景，带自然柔和落地阴影";
+
+        }
+
+
+        else if (preset === "wallStreet") {
+
+            document.getElementById("categorySelect").value =
+                "男士正装三件套（西装外套+马甲+西裤）";
+
+            document.getElementById("fitSelect").value =
+                "双排扣剪裁，宽戗驳领，商务精英感";
+
+            document.getElementById("fabricSelect").value =
+                "细条纹羊毛混纺，纹理清晰细致";
+
+            document.getElementById("colorSelect").value =
+                "藏青底细白条纹";
+
+            document.getElementById("sceneSelect").value =
+                "高级私人商务会所，深色木饰面，背景适度虚化";
+
+        }
+
+
+        else if (preset === "linenSummer") {
+
+            document.getElementById("categorySelect").value =
+                "男士商务休闲单西/西服外套";
+
+            document.getElementById("fitSelect").value =
+                "意式轻构柔软剪裁，自然垂坠，不僵硬";
+
+            document.getElementById("fabricSelect").value =
+                "透气亚麻棉混纺，自然纤维织纹";
+
+            document.getElementById("colorSelect").value =
+                "米白色/奶油色";
+
+            document.getElementById("sceneSelect").value =
+                "高端婚礼场地，自然草坪与庄园背景柔焦";
+
+        }
+
+
+        else if (preset === "velvetGala") {
+
+            document.getElementById("categorySelect").value =
+                "男士晚宴礼服西装外套";
+
+            document.getElementById("fitSelect").value =
+                "单排一粒扣，缎面青果领，正式礼服剪裁";
+
+            document.getElementById("fabricSelect").value =
+                "高级丝绒面料，具有柔和自然光泽";
+
+            document.getElementById("colorSelect").value =
+                "酒红色/勃艮第红";
+
+            document.getElementById("sceneSelect").value =
+                "高级酒店宴会厅，精致灯光与正式晚宴氛围";
+
+        }
+
+
+        else if (preset === "smartCasual") {
+
+            document.getElementById("categorySelect").value =
+                "男士商务休闲单西/西服外套";
+
+            document.getElementById("fitSelect").value =
+                "经典正统剪裁，自然肩线，比例均衡";
+
+            document.getElementById("fabricSelect").value =
+                "轻量化弹力混纺面料，舒适透气";
+
+            document.getElementById("colorSelect").value =
+                "深炭灰色";
+
+            document.getElementById("sceneSelect").value =
+                "欧洲现代商务街区建筑背景，画面干净高级";
+
+        }
+
+
+        else if (preset === "groomSuit") {
+
+            document.getElementById("categorySelect").value =
+                "男士婚礼新郎西装";
+
+            document.getElementById("fitSelect").value =
+                "现代修身剪裁，肩线挺括，整体利落有型";
+
+            document.getElementById("fabricSelect").value =
+                "高质感精纺羊毛混纺，织纹细腻自然";
+
+            document.getElementById("colorSelect").value =
+                "经典藏青色";
+
+            document.getElementById("sceneSelect").value =
+                "高端婚礼场地，自然草坪与庄园背景柔焦";
+
+        }
+
+
+        else if (preset === "blackBusiness") {
+
+            document.getElementById("categorySelect").value =
+                "男士经典商务西装";
+
+            document.getElementById("fitSelect").value =
+                "单排两粒扣剪裁，经典平驳领";
+
+            document.getElementById("fabricSelect").value =
+                "高质感精纺羊毛混纺，织纹细腻自然";
+
+            document.getElementById("colorSelect").value =
+                "纯正优雅黑色";
+
+            document.getElementById("sceneSelect").value =
+                "纯白色无缝摄影棚背景，无杂物，商品绝对突出";
+
+        }
+
+
+        else if (preset === "dressPants") {
+
+            document.getElementById("categorySelect").value =
+                "男士正装西裤/西服裤";
+
+            document.getElementById("fitSelect").value =
+                "修身直筒裤型，裤线清晰，裤脚自然垂坠";
+
+            document.getElementById("fabricSelect").value =
+                "四向高弹、抗皱、免烫功能性面料";
+
+            document.getElementById("colorSelect").value =
+                "深炭灰色";
+
+            document.getElementById("sceneSelect").value =
+                "纯白色无缝摄影棚背景，无杂物，商品绝对突出";
+
+        }
+
+
+        generatePrompt();
+    }
+
+
+    /* =========================
+       生成完整中文 Prompt
+    ========================= */
+
+    function generatePrompt() {
+
+        const category =
+            document.getElementById("categorySelect").value;
+
+        const fit =
+            document.getElementById("fitSelect").value;
+
+        const fabric =
+            document.getElementById("fabricSelect").value;
+
+        const color =
+            document.getElementById("colorSelect").value;
+
+        const model =
+            document.getElementById("modelEthnicity").value;
+
+        const pose =
+            document.getElementById("modelPose").value;
+
+        const scene =
+            document.getElementById("sceneSelect").value;
+
+        const lighting =
+            document.getElementById("lightingSelect").value;
+
+        const aspectRatio =
+            document.getElementById("aspectRatio").value;
+
+        const quality =
+            document.getElementById("qualitySelect").value;
+
+        const preserve =
+            document.getElementById("preserveControl").value;
+
+
+        /* 获取多选卖点 */
+
+        const activeSellingPoints =
+            Array.from(
+                document.querySelectorAll(
+                    "#sellingPoints .tag-btn.active"
+                )
+            )
+            .map(btn => btn.innerText.trim());
+
+
+        /* 获取图片目标 */
+
+        let activeGoal =
+            "真人男模全身展示图";
+
+        const goalBtn =
+            document.querySelector(
+                "#aiGoal .tag-btn.active"
+            );
+
+        if (goalBtn) {
+            activeGoal = goalBtn.innerText.trim();
+        }
+
+
+        const sellingPointsText =
+            activeSellingPoints.length > 0
+                ? activeSellingPoints.join("、")
+                : "清晰展示服装整体版型、结构与真实材质";
+
+
+        /* =========================
+           中文负向提示词
+        ========================= */
+
+        const negativePrompt = `
+严禁改变原商品的原本设计与剪裁；
+严禁修改服装颜色或产生明显色差；
+严禁修改、添加或删除原本的 Logo、印花、图案及标签；
+严禁凭空虚构不存在的口袋、拉链、纽扣、开衩或其他功能性细节；
+严禁改变原商品的面料材质、织纹与真实质感；
+禁止出现塌肩、凹肩、肩线不平整、胸部轮廓变形；
+禁止出现驳领歪斜、领型扭曲、左右翻领不对称；
+禁止出现纽扣错位、纽扣数量错误；
+禁止出现袖子数量错误、多余袖子；
+禁止出现畸形手部、畸形肢体、不协调的人体结构；
+禁止多余手指、多余手臂、多余腿部或多余身体部位；
+禁止出现不自然的手部姿势；
+禁止重复出现多个相同的商品；
+禁止服装悬浮或出现不符合现实逻辑的物体；
+禁止出现严重褶皱、面料塌陷或不合理的塑料感；
+禁止出现虚假的羊毛纹理或过度AI生成感；
+禁止过度磨皮、假皮肤、蜡像皮肤；
+禁止过度HDR、过度锐化、过度饱和或不真实霓虹色彩；
+禁止出现模糊、低清晰度、低分辨率；
+禁止出现水印、无关文字、乱码、印章；
+禁止添加虚假的电商标签、平台Logo或不存在的营销信息；
+禁止杂乱、抢眼、与商品无关的背景干扰；
+禁止背景抢夺商品主体视觉焦点。
+        `.trim();
+
+
+        /* =========================
+           最终 Prompt
+        ========================= */
+
+        const prompt = `
+【角色定义】
+你是一位资深的跨境电商男装视觉总监与 AI 图像精修生成专家，擅长根据 TEMU、SHEIN、Amazon 等跨境电商平台的商品视觉需求，生成真实、高级、具有商业转化能力的男式正装视觉图片。
+
+【目标平台】
+TEMU / SHEIN / Amazon
+符合跨境电商男式正装视觉策略：优先保证商品第一眼高辨识度，真实还原商品版型、结构、颜色与面料；通过规范清晰的商品视觉展示肩线、领型、扣数、开衩、裤型与面料细节；严禁虚构不存在的商品卖点。
+
+【商品信息】
+商品名称：${category}
+所属品类：男式正装 / 西装 / 单西 / 礼服 / 西裤 / 商务服饰
+主打颜色：${color}
+版型与剪裁：${fit}
+面料与材质：${fabric}
+
+【生成任务】
+在严格保留原商品本体所有设计与结构的前提下，对商品进行高质量商业视觉呈现。
+商品必须作为绝对视觉核心，仅对背景、拍摄环境、模特展示方式、灯光与商业摄影质感进行优化，不得改变商品原有设计。
+
+【视觉方向】
+图片类型：${activeGoal}
+
+背景环境：${scene}
+
+灯光效果：${lighting}
+
+镜头与构图：
+使用专业商业服装摄影视角，完整、清晰展示男式正装的整体比例与版型；
+重点突出肩部、胸部、驳领、纽扣、腰部、开衩、裤线及裤脚垂坠感；
+商品占据画面主要视觉区域，背景只作衬托，不抢夺视觉焦点；
+画面构图干净、高级、符合跨境电商商品视觉需求。
+
+模特设定：
+${model}
+
+模特姿态：
+${pose}
+
+输出比例：
+${aspectRatio}
+
+【核心卖点视觉化】
+重点清晰展示以下商品卖点：
+${sellingPointsText}。
+
+如果商品包含四向弹力、抗皱免烫、羊毛纹理、弹性腰头等功能卖点，
+应通过真实自然的面料细节、微距特写或人体穿着状态进行视觉表达，
+但不得添加商品实际不存在的功能。
+
+【最高优先级：商品一致性要求】
+${preserve}。
+
+严格保持商品原本的设计、颜色、版型、Logo标识、印花、标签、纽扣、口袋、开衩、领型、袖型、裤型、面料材质纹理、比例及所有功能性细节不变。
+
+【画质与商业摄影要求】
+${quality}。
+采用写实商业时装摄影风格；
+真实还原细腻的面料材质与织物纹理；
+模特皮肤质感自然健康；
+人体比例真实协调；
+服装肩线、领型、轮廓边缘清晰利落；
+色彩精准，无明显色差；
+高光与阴影自然柔和；
+整体呈现高级、真实、专业且具有跨境电商爆款视觉转化能力的商品图片。
+
+【负向提示词（Negative Prompt）】
+${negativePrompt}
+
+【卖家自定义补充要求】
+整体呈现自然真实的欧美男装审美与高品质跨境电商视觉质感。
+避免过度浮夸的后期修饰。
+根据商品属性严格匹配场景：
+塔克西多、婚礼西装与晚宴礼服优先匹配五星级酒店、婚礼、宴会等正式环境；
+商务西装、单西与商务西裤优先匹配高档办公室、现代城市建筑、简洁摄影棚或高级商务街拍环境。
+
+【最终校验规则】
+在生成图像前，请再次确认商品与原商品保持完全一致。
+重点检查：
+1. 肩线是否平整挺括，不能塌肩或凹陷；
+2. 胸部与整体西装轮廓是否自然有型；
+3. 左右驳领是否对称；
+4. 纽扣数量与位置是否正确；
+5. 商品颜色是否与原商品一致；
+6. 面料纹理是否真实；
+7. 人体比例、手部与肢体是否自然；
+8. 是否出现多余商品、重复服装或AI变形；
+9. 背景是否干净且不抢夺商品主体；
+10. 买家是否能在1-2秒内清晰识别商品本体。
+
+最终目标：生成一张真实、高级、结构准确、商品一致性强、具有跨境电商高点击率与高转化潜力的男式正装商业视觉图片。
+        `.trim();
+
+
+        document.getElementById("promptResult").innerText =
+            prompt;
+    }
+
+
+    /* =========================
+       复制 Prompt
+    ========================= */
+
+    function copyPrompt() {
+
+        const text =
+            document.getElementById("promptResult").innerText;
+
+
+        navigator.clipboard.writeText(text)
+            .then(() => {
+
+                alert(
+                    "完整中文 Prompt 已成功复制！\\n\\n已包含：角色定义、平台策略、商品信息、视觉方向、卖点、商品一致性要求、画质要求、中文负向提示词与最终校验规则。"
+                );
+
+            })
+            .catch(() => {
+
+                alert(
+                    "复制失败，请手动选中 Prompt 内容进行复制。"
+                );
+
+            });
+
+    }
+
+
+    /* =========================
+       页面初始化
+    ========================= */
+
+    generatePrompt();
+
+</script>
+
+</body>
+</html>
