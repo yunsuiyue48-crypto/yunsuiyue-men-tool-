@@ -183,3 +183,12 @@ tr:last-child td{border-bottom:none}
 .info-banner{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--rust);border-radius:0 10px 10px 0;padding:16px 20px;margin-bottom:18px}
 .info-banner h3{font-size:15px;margin-bottom:4px}
 .info-banner p{font-size:12.5px;color:var(--muted)}
+
+/* ---------- 词库资质标记（标题优化） ---------- */
+.kw-card{position:relative}
+.kw-req{display:inline-block;margin-top:6px;font-size:10px;font-weight:700;letter-spacing:.05em;
+  color:#8A5A12;background:#FBEFD6;border:1px solid #E8C98A;border-radius:999px;padding:1px 8px;line-height:1.6}
+.kw-card.selected .kw-req{color:#F6E3BE;background:#4A3B22;border-color:#7A6238}
+.kw-tip{margin:14px 0 2px;padding:11px 14px;background:var(--rust-soft);border-left:3px solid var(--rust);
+  border-radius:0 8px 8px 0;font-size:12.5px;color:#7A3B22;line-height:1.8}
+.kw-tip b{color:var(--rust)}

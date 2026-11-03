@@ -25,7 +25,7 @@
 <div class="page-head"><div class="in">
   <div class="kicker">Title Formula / Polo Keywords</div>
   <h1 class="serif">标题优化 · POLO 衫专用词库</h1>
-  <p class="lead">POLO 的搜索流量集中在「领型 + 门襟 + 功能 + 场景」四个位置上，而不是泛泛的「Men's Shirt」。选中维度后自动拼出中英双语标题，可直接用于上新。</p>
+  <p class="lead">POLO 的搜索流量集中在「领型 + 门襟 + 功能 + 场景」四个位置上，而不是泛泛的「Men's Shirt」。选中维度后自动拼出中英双语标题，可直接用于上新；涉及功效宣称的词条（如 UPF 50+）须先备齐资质。</p>
 </div></div>
 
 <div class="container">
@@ -74,7 +74,7 @@
           <tr><td>领型</td><td>撞色领（Contrast Collar）是 S 级品相的核心符号，也是站内高转化词；同色领走「Classic」路线</td></tr>
           <tr><td>门襟</td><td>Quarter-Zip 是 POLO 里增长最快的结构词，Zipper Polo 与 Button Polo 要分开写，不要混用</td></tr>
           <tr><td>面料</td><td>Pique 是品类默认词，可不写也不会丢流量；Waffle / Jacquard / Cable Knit 属于差异化必写词</td></tr>
-          <tr><td>功能</td><td>Moisture Wicking / Quick Dry / UPF 50+ 三个词在高尔夫与户外路径必须出现，否则类目匹配度不足</td></tr>
+          <tr><td>功能</td><td>Moisture Wicking / Quick Dry 在高尔夫与户外路径建议必写，否则类目匹配度不足；<b style="color:var(--rust)">UPF 50+ 需资质才可描述该卖点</b>，无检测报告或授权时一律不写；抗菌类词条已从词库移除，不得自行添加</td></tr>
           <tr><td>场景</td><td>Golf / Tennis / Hiking / Gym 拴住垂直运动流量；Casual / Business Casual 拴住日常大盘</td></tr>
           <tr><td>忌用</td><td>Brand 名、球队名、赛事名（如 Masters / Wimbledon）、名人姓名，一律不得进标题</td></tr>
         </tbody>
@@ -84,7 +84,7 @@
 
 </div>
 
-<div class="disclaimer">⚠️ 标题中的图案与风格描述须与实际货品一致，避免图文不符被下架</div>
+<div class="disclaimer">⚠️ 标题中的图案与风格描述须与实际货品一致，避免图文不符被下架；UPF 50+ 等功效词须持有对应资质方可描述，抗菌类词条请勿使用</div>
 <div class="footer">云岁月 · POLO 衫运营中枢</div>
 
 <script>
@@ -112,9 +112,9 @@ var DIMS = [
     ['Zipper Polo','拉链门襟'],['V-Neck Placket','V 型开襟'],['Hidden Placket','隐藏门襟']
   ]},
   {key:'function', label:'功能卖点', items:[
-    ['Moisture Wicking','吸湿排汗'],['Quick Dry','速干'],['UPF 50+','防晒 UPF50+'],
-    ['4-Way Stretch','四面弹'],['Anti-Odor','抗菌防臭'],['Breathable','透气'],
-    ['Wrinkle-Free','免烫抗皱'],['Lightweight','轻薄']
+    ['Moisture Wicking','吸湿排汗'],['Quick Dry','速干'],
+    ['UPF 50+','防晒 UPF50+','需资质'],['4-Way Stretch','四面弹'],
+    ['Breathable','透气'],['Wrinkle-Free','免烫抗皱'],['Lightweight','轻薄']
   ]},
   {key:'scene', label:'场景', items:[
     ['Golf','高尔夫'],['Tennis','网球'],['Hiking','徒步'],['Gym & Training','健身训练'],
@@ -141,7 +141,8 @@ var sel = {};
     d.items.forEach(function(it){
       var c = document.createElement('div');
       c.className = 'kw-card';
-      c.innerHTML = '<span class="kw-en">' + it[0] + '</span><span class="kw-cn">' + it[1] + '</span>';
+      c.innerHTML = '<span class="kw-en">' + it[0] + '</span><span class="kw-cn">' + it[1] + '</span>'
+        + (it[2] ? '<span class="kw-req">' + it[2] + '</span>' : '');
       c.onclick = function(){
         var i = sel[d.key].indexOf(it[0]);
         if(i >= 0){ sel[d.key].splice(i,1); c.classList.remove('selected'); }
@@ -150,6 +151,12 @@ var sel = {};
       grid.appendChild(c);
     });
     sec.appendChild(grid);
+    if(d.key === 'function'){
+      var tip = document.createElement('div');
+      tip.className = 'kw-tip';
+      tip.innerHTML = '⚠️ <b>合规提示：</b>「UPF 50+」属防晒功效宣称，<b>需具备对应检测报告 / 资质授权</b>后才可描述该卖点，无资质请勿在标题、主图与详情页使用；原「抗菌防臭（Anti-Odor）」词条已从词库移除，不得自行添加。';
+      sec.appendChild(tip);
+    }
     area.appendChild(sec);
   });
 })();
