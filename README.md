@@ -1,32 +1,37 @@
-# 云岁月对接类目上新指引
+# 云岁月 · POLO 衫运营中枢
 
-直接把本压缩包内文件上传/替换到 GitHub 仓库根目录即可。
+以 POLO 衫为单一主线的静态运营站点。解压后双击 `index.html` 即可离线浏览，也可直接推送到 GitHub Pages。
 
-## 关键目录
-- index.html
-- style.css
-- app.js
-- data/category-data.js
-- data/open-direction-data.js
-- data/title-data.js
-- data/visual-data.js
-- assets/styles/padded/（已包含棉羽绒 PPT 导出的 PNG 和 PDF）
-- source-files/云岁月对接路径表.xlsx
+## 页面结构
 
-## 还需要保留你原仓库中的套装/正装素材
-如果你希望套装和正装 PDF 正常显示，请确认存在：
-assets/styles/sets/开款参考.pdf
+| 文件 | 页面 | 内容 |
+|---|---|---|
+| index.html | 首页 | 数据总览、品相速览、17 条路径概览、合规文件入口 |
+| category-guide.html | 类目指引 | 17 条云岁月对接路径，按场景分类筛选、一键复制 |
+| appearance.html | 品相图鉴 | S / A 两级品相特征拆解（背景·领型·门襟·版型·动作·人种·调性）+ 88 张风貌图，点击放大 |
+| top-goods.html | TOP 商品 | 10 月 POLO 衫 479 款，按区域（glo / eu / us）聚合，支持图片视图与表格视图 |
+| visual.html | 视觉优化 | 两套品相拍摄规格 + 主图指令生成器（中英双语） |
+| title.html | 标题优化 | POLO 专用词库（图案/面料/版型/领型/门襟/功能/场景/细节）+ 标题生成 |
+| recruit.html | 招品回品 | 111 款回品参考图库 |
+| ideas.html | 爆款延改 | 图案胚衣延改方向（领型 / 肌理 / 条纹 / 面料 / 拼接 / 辅料） |
 
-如果你有以下图片，也可以继续保留：
-assets/styles/sets/肌理短裤短袖.png
-assets/styles/sets/图案图形 短袖短裤.png
-assets/styles/sets/运动速干.png
-assets/styles/sets/战术服套装.png
+## 数据来源
 
-本版本已修复：
-1. open-direction-data.js 中代码块符号导致 JS 无法解析的问题
-2. image 字段后缺少逗号导致 JS 整体报错的问题
-3. PDF URL 出现双 # 的问题
-4. PDF 页码与 toolbar 参数冲突的问题
-5. 图片优先、PDF 兜底预览逻辑
-6. 棉羽绒(1).pptx 已转换为 GitHub 可直接访问的 PNG + PDF 资产
+- 路径：`云岁月对接路径.xlsx`（17 条，季节均为春夏秋，对接方云岁月，其中 3 条标注免审）
+- 品相：`S A平台POLO品相风貌图鉴`（88 张，S/A 各 44 张，6 维度统计）
+- 款式：`10月polo衫top商品`（600 条链接聚合为 479 款）
+
+## 已知处理
+
+- 原表第 4 条「高尔高尔夫服」为笔误，页面已按「高尔夫服」输出。
+- 免审以原表标注为准：① 男装Polo衫、④ 男士高尔夫T恤>Polo 衫、⑰ 男士运动休闲衬衫和 Polo 衫>Polo 衫。
+
+## 维护方式
+
+- 新增路径：编辑 `category-guide.html` 中的 `.path-card` 块，`data-cat` 控制所属筛选分类，`data-free="1"` 表示免审。
+- 新增词条：编辑 `title.html` 顶部的 `DIMS` 数组，格式为 `['English','中文']`。
+- 新增拍摄维度：编辑 `visual.html` 顶部的 `GROUPS` 数组，格式为 `['中文名','English prompt','中文描述']`。
+
+## 免责
+
+页面内商品图与图案均来自公开平台在售商品，仅作款式结构与品相参考，实际开发请安全延改，避免侵权。

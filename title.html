@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>标题优化 · POLO 衫词库</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="ys-nav"><div class="in">
+  <div class="brand">云岁月 <em>POLO</em></div>
+  <div class="links">
+    <a href="index.html">首页</a>
+    <a href="category-guide.html">类目指引</a>
+    <a href="appearance.html">品相图鉴</a>
+    <a href="top-goods.html">TOP商品</a>
+    <a href="visual.html">视觉优化</a>
+    <a href="title.html" class="on">标题优化</a>
+    <a href="recruit.html">招品回品</a>
+    <a href="ideas.html">爆款延改</a>
+  </div>
+</div></div>
+
+<div class="page-head"><div class="in">
+  <div class="kicker">Title Formula / Polo Keywords</div>
+  <h1 class="serif">标题优化 · POLO 衫专用词库</h1>
+  <p class="lead">POLO 的搜索流量集中在「领型 + 门襟 + 功能 + 场景」四个位置上，而不是泛泛的「Men's Shirt」。选中维度后自动拼出中英双语标题，可直接用于上新。</p>
+</div></div>
+
+<div class="container">
+
+  <div class="section">
+    <div class="section-title"><span class="no">01</span><h2>POLO 标题黄金公式</h2></div>
+    <div class="card" style="background:linear-gradient(135deg,#1B1A17,#3A3730);color:#F6F3EE;border:none">
+      <div style="font-family:Georgia,serif;font-size:15px;line-height:2.1;letter-spacing:.01em">
+        [图案 Pattern] + [面料 Fabric] + [版型 Fit] + <span style="color:#E0A96D">[领型 Collar]</span> + <span style="color:#E0A96D">[门襟 Placket]</span> + Polo Shirt + [场景 Scene] + <span style="color:#9FD3A8">[功能 Function]</span>
+      </div>
+      <div style="font-size:12px;color:#A9A093;margin-top:10px;line-height:1.9">
+        英文侧以 <b style="color:#F6F3EE">Polo Shirt</b> 作为核心品类词，必须前置在 60 字符内；<br>
+        中文侧把「男/男士」放在最前，领型与功能紧跟，避免「高档」「爆款」等无效词。
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="no">02</span><h2>选词生成</h2><span class="hint">点击卡片选择，可多选</span></div>
+    <div class="card">
+      <div id="kwArea"></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+        <button class="btn" onclick="build()">⚡ 生成标题</button>
+        <button class="btn btn-outline" onclick="reset()">🔄 清空重选</button>
+      </div>
+
+      <div class="title-result">
+        <div style="font-size:11.5px;letter-spacing:.1em;color:var(--gold);font-weight:700;margin-bottom:6px">中文标题</div>
+        <div class="cn" id="outCN">请在上方选择关键词…</div>
+      </div>
+      <div class="title-result">
+        <div style="font-size:11.5px;letter-spacing:.1em;color:var(--gold);font-weight:700;margin-bottom:6px">ENGLISH TITLE</div>
+        <div class="en" id="outEN" style="font-style:normal">Select keywords above…</div>
+        <div style="font-size:11.5px;color:var(--muted);margin-top:8px">字符数：<span id="len">0</span> / 建议 ≤ 150</div>
+      </div>
+      <button class="btn" onclick="copyT()">📋 复制中英双语</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="no">03</span><h2>词库使用要点</h2></div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th style="width:150px">维度</th><th>捡词逻辑</th></tr></thead>
+        <tbody>
+          <tr><td>领型</td><td>撞色领（Contrast Collar）是 S 级品相的核心符号，也是站内高转化词；同色领走「Classic」路线</td></tr>
+          <tr><td>门襟</td><td>Quarter-Zip 是 POLO 里增长最快的结构词，Zipper Polo 与 Button Polo 要分开写，不要混用</td></tr>
+          <tr><td>面料</td><td>Pique 是品类默认词，可不写也不会丢流量；Waffle / Jacquard / Cable Knit 属于差异化必写词</td></tr>
+          <tr><td>功能</td><td>Moisture Wicking / Quick Dry / UPF 50+ 三个词在高尔夫与户外路径必须出现，否则类目匹配度不足</td></tr>
+          <tr><td>场景</td><td>Golf / Tennis / Hiking / Gym 拴住垂直运动流量；Casual / Business Casual 拴住日常大盘</td></tr>
+          <tr><td>忌用</td><td>Brand 名、球队名、赛事名（如 Masters / Wimbledon）、名人姓名，一律不得进标题</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<div class="disclaimer">⚠️ 标题中的图案与风格描述须与实际货品一致，避免图文不符被下架</div>
+<div class="footer">云岁月 · POLO 衫运营中枢</div>
+
+<script>
+var DIMS = [
+  {key:'pattern', label:'图案 / 花型', items:[
+    ['Solid','纯色'],['Striped','条纹'],['Color Block','撞色拼接'],['Floral','花卉'],
+    ['Geometric','几何'],['Paisley','佩斯利'],['Argyle','菱格'],['Novelty Print','趣味印花'],
+    ['Jacquard Pattern','提花暗纹'],['Camo','迷彩']
+  ]},
+  {key:'fabric', label:'面料 / 肌理', items:[
+    ['Pique Cotton','珠地棉'],['Cotton Blend','棉混纺'],['Jersey Knit','平纹针织'],
+    ['Waffle Knit','华夫格'],['Cable Knit','绞花针织'],['Mesh','网眼'],
+    ['Poly-Spandex','涤氨弹力'],['Bamboo Fiber','竹纤维'],['Merino Wool','美利奴羊毛']
+  ]},
+  {key:'fit', label:'版型 / 袖长', items:[
+    ['Regular Fit','常规版'],['Slim Fit','修身版'],['Relaxed Fit','宽松版'],
+    ['Short Sleeve','短袖'],['Long Sleeve','长袖'],['Big & Tall','加大码']
+  ]},
+  {key:'collar', label:'领型', items:[
+    ['Contrast Collar','撞色领'],['Ribbed Collar','罗纹领'],['Classic Collar','经典翻领'],
+    ['Stand Collar','立领'],['Tipped Collar','领边撞色'],['Striped Inner Collar','领内条纹']
+  ]},
+  {key:'placket', label:'门襟', items:[
+    ['2-Button Placket','两粒扣'],['3-Button Placket','三粒扣'],['Quarter-Zip','半开拉链'],
+    ['Zipper Polo','拉链门襟'],['V-Neck Placket','V 型开襟'],['Hidden Placket','隐藏门襟']
+  ]},
+  {key:'function', label:'功能卖点', items:[
+    ['Moisture Wicking','吸湿排汗'],['Quick Dry','速干'],['UPF 50+','防晒 UPF50+'],
+    ['4-Way Stretch','四面弹'],['Anti-Odor','抗菌防臭'],['Breathable','透气'],
+    ['Wrinkle-Free','免烫抗皱'],['Lightweight','轻薄']
+  ]},
+  {key:'scene', label:'场景', items:[
+    ['Golf','高尔夫'],['Tennis','网球'],['Hiking','徒步'],['Gym & Training','健身训练'],
+    ['Casual','日常'],['Business Casual','商务休闲'],['Beach & Resort','度假'],['Party','派对']
+  ]},
+  {key:'detail', label:'细节工艺', items:[
+    ['Chest Pocket','胸袋'],['Embroidered Logo','刺绣标'],['Side Slit','侧开衩'],
+    ['Contrast Placket','撞色门襟'],['Contrast Cuffs','撞色袖口'],['Ribbed Cuffs','罗纹袖口']
+  ]}
+];
+
+var sel = {};
+(function init(){
+  var area = document.getElementById('kwArea');
+  DIMS.forEach(function(d){
+    sel[d.key] = [];
+    var sec = document.createElement('div');
+    sec.className = 'kw-section';
+    var h = document.createElement('h4');
+    h.innerHTML = d.label + ' <span class="count">' + d.items.length + '</span>';
+    sec.appendChild(h);
+    var grid = document.createElement('div');
+    grid.className = 'kw-grid';
+    d.items.forEach(function(it){
+      var c = document.createElement('div');
+      c.className = 'kw-card';
+      c.innerHTML = '<span class="kw-en">' + it[0] + '</span><span class="kw-cn">' + it[1] + '</span>';
+      c.onclick = function(){
+        var i = sel[d.key].indexOf(it[0]);
+        if(i >= 0){ sel[d.key].splice(i,1); c.classList.remove('selected'); }
+        else { sel[d.key].push(it[0]); c.classList.add('selected'); }
+      };
+      grid.appendChild(c);
+    });
+    sec.appendChild(grid);
+    area.appendChild(sec);
+  });
+})();
+
+function maps(key){
+  var d = DIMS.filter(function(x){return x.key===key})[0];
+  return sel[key].map(function(n){ return d.items.filter(function(i){return i[0]===n})[0]; });
+}
+function en(key){ return maps(key).map(function(x){return x[0]}); }
+function cn(key){ return maps(key).map(function(x){return x[1]}); }
+
+function build(){
+  var P = en('pattern'), F = en('fabric'), FT = en('fit'), C = en('collar'),
+      PL = en('placket'), FN = en('function'), S = en('scene'), D = en('detail');
+  var head = [];
+  if(P.length) head.push(P.join(' '));
+  if(F.length) head.push(F.join(' '));
+  if(FT.length) head.push(FT.join(' '));
+  var enTitle = (head.length ? head.join(' ') + ' ' : '') + 'Polo Shirt';
+  var tail = [];
+  if(C.length) tail.push(C.join(' '));
+  if(PL.length) tail.push(PL.join(' '));
+  if(D.length) tail.push(D.join(' '));
+  if(S.length) tail.push('for ' + S.join(' & '));
+  if(FN.length) tail.push(FN.join(' '));
+  if(tail.length) enTitle += ', ' + tail.join(', ');
+  enTitle += ', Men';
+
+  var cnHead = [];
+  if(P.length) cnHead.push(cn('pattern').join(''));
+  if(F.length) cnHead.push(cn('fabric').join(''));
+  if(FT.length) cnHead.push(cn('fit').join(''));
+  var cnTitle = '男士' + (cnHead.length ? cnHead.join('') : '') + 'POLO衫';
+  var cnTail = [];
+  if(C.length) cnTail.push(cn('collar').join(''));
+  if(PL.length) cnTail.push(cn('placket').join(''));
+  if(D.length) cnTail.push(cn('detail').join(''));
+  if(FN.length) cnTail.push(cn('function').join(''));
+  if(S.length) cnTail.push('适用' + cn('scene').join(''));
+  if(cnTail.length) cnTitle += '，' + cnTail.join('、');
+
+  document.getElementById('outCN').textContent = cnTitle;
+  document.getElementById('outEN').textContent = enTitle;
+  document.getElementById('len').textContent = enTitle.length;
+}
+
+function reset(){
+  sel = {};
+  document.querySelectorAll('.kw-card.selected').forEach(function(c){ c.classList.remove('selected'); });
+  document.getElementById('outCN').textContent = '请在上方选择关键词…';
+  document.getElementById('outEN').textContent = 'Select keywords above…';
+  document.getElementById('len').textContent = '0';
+}
+
+function copyT(){
+  var t = document.getElementById('outCN').textContent + '\n' + document.getElementById('outEN').textContent;
+  if(navigator.clipboard){ navigator.clipboard.writeText(t); }
+  else { var ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); }
+}
+</script>
+</body>
+</html>

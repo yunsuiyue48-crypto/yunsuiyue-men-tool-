@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>视觉优化 · POLO 主图指令</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="ys-nav"><div class="in">
+  <div class="brand">云岁月 <em>POLO</em></div>
+  <div class="links">
+    <a href="index.html">首页</a>
+    <a href="category-guide.html">类目指引</a>
+    <a href="appearance.html">品相图鉴</a>
+    <a href="top-goods.html">TOP商品</a>
+    <a href="visual.html" class="on">视觉优化</a>
+    <a href="title.html">标题优化</a>
+    <a href="recruit.html">招品回品</a>
+    <a href="ideas.html">爆款延改</a>
+  </div>
+</div></div>
+
+<div class="page-head"><div class="in">
+  <div class="kicker">Visual System / S–A Appearance Code</div>
+  <h1 class="serif">视觉优化 · POLO 主图指令生成</h1>
+  <p class="lead">按品相图鉴拆出的两套语言出图：<b>S 级</b>用场景与动作讲情绪，抢点击；<b>A 级</b>用白底与同色讲信息，保转化。选完维度后生成可直接给到拍摄/AI 绘图的中英双语指令。</p>
+</div></div>
+
+<div class="container">
+
+  <div class="section">
+    <div class="section-title"><span class="no">01</span><h2>两套品相的拍摄规格</h2><span class="hint">对应 88 张风貌图的统计结论</span></div>
+    <div class="duo">
+      <div class="panel s">
+        <span class="tag">S 级</span>
+        <h3>场景叙事型 <span>抢点击</span></h3>
+        <ul class="feats">
+          <li><b>背景</b><span>灰水泥墙、复古书房、沙发木地板、街道路面、楼梯、海景船舷；暗调暖灰，三分之一为带道具的平铺/挂拍</span></li>
+          <li><b>光线</b><span>有方向感，保留投影与层次，忌平光</span></li>
+          <li><b>景别</b><span>半身为主，构图留环境信息</span></li>
+          <li><b>动作</b><span>插兜、倚墙、坐姿、行走、持物，眼神回避镜头或戴墨镜</span></li>
+          <li><b>人种</b><span>25–40 岁白男为主，穿插黑人与亚裔；络腮胡、纹身、金饰常见</span></li>
+          <li><b>版型</b><span>修身至偏宽松，衣长盖臀不扎腰，肌理（提花/绞花/菱格）被刻意放大</span></li>
+        </ul>
+      </div>
+      <div class="panel a">
+        <span class="tag">A 级</span>
+        <h3>白底标准型 <span>保转化</span></h3>
+        <ul class="feats">
+          <li><b>背景</b><span>纯白无缝棚拍（极少数浅灰），无道具、无明显投影</span></li>
+          <li><b>光线</b><span>明亮均匀柔光，以还原真实颜色为第一目标</span></li>
+          <li><b>景别</b><span>标准正面半身站姿；少数全身与挂拍/平铺，一律白底</span></li>
+          <li><b>动作</b><span>双臂自然下垂或轻插兜，正面看镜头，可微笑，高度标准化可批量复制</span></li>
+          <li><b>人种</b><span>白种与黑人/深肤色约各半；清一色短发，少胡须、少配饰</span></li>
+          <li><b>版型</b><span>常规直筒，及臀不扎腰；纯色基础与细条纹、针织肌理为主</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="note" style="margin-top:12px">
+      <b>用法建议：</b>一个链接的主图组 = 第 1 张 A 级白底（定品类与真色）+ 第 2–3 张 S 级场景（抢点击）+ 1 张面料微距。不要把 S 级场景图放在首图：首图要保证识款效率。
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="no">02</span><h2>主图指令生成器</h2><span class="hint">点击选择，可多选</span></div>
+    <div class="card">
+      <div id="optArea"></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px">
+        <button class="btn" onclick="genPrompt()">⚡ 生成指令</button>
+        <button class="btn btn-outline" onclick="clearAll()">🔄 清空重选</button>
+        <button class="btn btn-outline" onclick="copyPrompt()">📋 复制指令</button>
+      </div>
+      <h3 style="margin-top:22px">English Prompt</h3>
+      <div class="prompt-box" id="outEN">Select options above, then click Generate.</div>
+      <h3>中文描述</h3>
+      <div class="prompt-box" id="outCN" style="color:#D8CDBB">请在上方选择维度后点击「生成指令」。</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="no">03</span><h2>主图禁区</h2></div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th style="width:180px">项目</th><th>要求</th></tr></thead>
+        <tbody>
+          <tr><td>品牌标识</td><td>不得出现他人品牌 logo、球队徽章、赛事标志；刺绣位一律用自有或无标的抽象图形</td></tr>
+          <tr><td>图案来源</td><td>参考网络图案必须安全延改（改构图、配色、元素组合），不可直接复刻</td></tr>
+          <tr><td>首图文字</td><td>不加促销角标、不加英文大标语，避免被判图文不符</td></tr>
+          <tr><td>颜色还原</td><td>A 级白底图不得加滤镜调色，否则易触发色差纠纷</td></tr>
+          <tr><td>模特使用</td><td>不得使用真人明星/AI 换脸；同一模特不要跨多个店铺重复使用</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<div class="disclaimer">⚠️ 以上为拍摄与出图规范参考，实际以平台当期主图规则为准</div>
+<div class="footer">云岁月 · POLO 衫运营中枢</div>
+
+<script>
+var GROUPS = [
+  {key:'level', label:'品相级别', items:[
+    ['S 级 场景叙事','S-level editorial look, lifestyle context','S 级：场景叙事，氛围优先'],
+    ['A 级 白底标准','A-level standard white-background studio shot','A 级：纯白背景标准信息图']
+  ]},
+  {key:'bg', label:'背景', items:[
+    ['深灰水泥墙','dark grey concrete wall texture','深灰水泥墙'],
+    ['复古书房','vintage study room with bookshelves and warm lamp','复古书房'],
+    ['米色沙发客厅','beige fabric sofa in a warm living room','米色沙发客厅'],
+    ['街头路面','city street pavement as backdrop','城市街道路面'],
+    ['室外楼梯','outdoor stone staircase','室外石阶'],
+    ['海景船舷','seaside yacht deck railing','海景船舷'],
+    ['纯白无缝棚','pure white seamless studio background','纯白无缝棚'],
+    ['浅灰棚拍','light grey studio background','浅灰影棚'],
+    ['木地板平铺','flat lay on light oak wooden floor','木地板平铺'],
+    ['挂拍白墙','hanging shot on a white wall','白墙挂拍']
+  ]},
+  {key:'light', label:'光线', items:[
+    ['侧向自然光带投影','directional side daylight with soft cast shadows','侧向自然光，留有投影'],
+    ['暖调暗场','warm low-key lighting with deep shadows','暖调暗场光'],
+    ['均匀柔光无投影','even softbox lighting, no visible shadow','均匀柔光，无投影'],
+    ['顶部柔光浅阴影','top soft light with subtle shadow','顶部柔光带浅影']
+  ]},
+  {key:'frame', label:'景别', items:[
+    ['半身','half-body framing, waist up','半身'],
+    ['七分身','three-quarter length framing','七分身'],
+    ['全身','full body standing shot','全身'],
+    ['平铺','flat lay top-down view','平铺'],
+    ['挂拍','hanging garment shot','挂拍']
+  ]},
+  {key:'collar', label:'领型', items:[
+    ['撞色翻领','contrast-colour polo collar','撞色翻领'],
+    ['同色翻领','self-colour polo collar','同色翻领'],
+    ['罗纹翻领','ribbed knit polo collar','罗纹翻领'],
+    ['立领半拉链','stand collar with quarter-zip','立领半拉链'],
+    ['领袖口成套撞色','contrast collar and cuffs in a matching set','领口袖口成套撞色'],
+    ['领内衬条纹','striped inner collar band','领内衬条纹']
+  ]},
+  {key:'placket', label:'门襟', items:[
+    ['两粒扣','two-button placket','两粒扣'],
+    ['三粒扣','three-button placket','三粒扣'],
+    ['半开拉链','quarter-zip placket','半开拉链'],
+    ['V 型开襟','V-neck open placket','V 型开襟'],
+    ['隐藏门襟','hidden placket','隐藏门襟']
+  ]},
+  {key:'fit', label:'版型', items:[
+    ['修身','slim fit','修身'],
+    ['常规直筒','regular straight fit','常规直筒'],
+    ['宽松','relaxed fit','宽松'],
+    ['短袖','short sleeve','短袖'],
+    ['长袖','long sleeve','长袖']
+  ]},
+  {key:'fabric', label:'面料肌理', items:[
+    ['珠地网眼','pique mesh texture','珠地网眼'],
+    ['提花针织','jacquard knit pattern','提花针织'],
+    ['华夫格','waffle knit texture','华夫格'],
+    ['菱格绞花','argyle cable knit','菱格绞花'],
+    ['细条纹','fine yarn-dyed stripe','细条纹'],
+    ['纯色平纹','solid jersey knit','纯色平纹']
+  ]},
+  {key:'pose', label:'动作', items:[
+    ['插兜倚墙','leaning against the wall with hands in pockets','插兜倚墙'],
+    ['坐姿','seated on a sofa, relaxed posture','坐姿'],
+    ['行走','mid-stride walking motion','行走'],
+    ['手持墨镜','holding sunglasses in one hand','手持墨镜'],
+    ['正面站姿看镜头','standing front-facing, looking into the camera','正面站姿看镜头'],
+    ['轻插兜微笑','one hand lightly in pocket, subtle smile','轻插兜微笑'],
+    ['侧头看景','head turned away, looking off camera','侧头看景']
+  ]},
+  {key:'model', label:'模特', items:[
+    ['白种男模','Caucasian male model','白种男模'],
+    ['黑人男模','Black male model','黑人男模'],
+    ['亚裔男模','Asian male model','亚裔男模'],
+    ['25–40 岁','aged 25 to 40','25–40 岁'],
+    ['络腮胡','well-groomed beard','络腮胡'],
+    ['干净短发','clean short haircut','干净短发']
+  ]},
+  {key:'retouch', label:'后期', items:[
+    ['保留面料纹理','keep fabric texture visible, no over-smoothing','保留面料纹理'],
+    ['真实肤色','natural skin tone, no heavy retouch','真实肤色'],
+    ['不加文字水印','no text, no watermark, no logo','不加文字水印']
+  ]}
+];
+
+var sel = {};
+
+(function init(){
+  var area = document.getElementById('optArea');
+  GROUPS.forEach(function(g){
+    sel[g.key] = [];
+    var wrap = document.createElement('div');
+    wrap.className = 'option-group';
+    var h = document.createElement('h4');
+    h.textContent = g.label;
+    wrap.appendChild(h);
+    var tags = document.createElement('div');
+    tags.className = 'option-tags';
+    g.items.forEach(function(it){
+      var t = document.createElement('span');
+      t.className = 'option-tag';
+      t.textContent = it[0];
+      t.onclick = function(){
+        var i = sel[g.key].indexOf(it[0]);
+        if(i >= 0){ sel[g.key].splice(i,1); t.classList.remove('selected'); }
+        else { sel[g.key].push(it[0]); t.classList.add('selected'); }
+      };
+      tags.appendChild(t);
+    });
+    wrap.appendChild(tags);
+    area.appendChild(wrap);
+  });
+})();
+
+function pick(key){
+  var g = GROUPS.filter(function(x){return x.key===key})[0];
+  return sel[key].map(function(name){
+    var it = g.items.filter(function(i){return i[0]===name})[0];
+    return it || [name, name, name];
+  });
+}
+
+function genPrompt(){
+  var isA = sel.level.indexOf('A 级 白底标准') >= 0;
+  var L = [];
+  var bg = pick('bg'), light = pick('light'), frame = pick('frame'),
+      collar = pick('collar'), placket = pick('placket'), fit = pick('fit'),
+      fabric = pick('fabric'), pose = pick('pose'), model = pick('model'), retouch = pick('retouch');
+
+  L.push('Product photography for a men\'s polo shirt listing.');
+  if(bg.length) L.push('Background: ' + bg.map(function(x){return x[1]}).join('; ') + '.');
+  else L.push(isA ? 'Background: pure white seamless studio background.' : 'Background: contextual lifestyle set.');
+  if(light.length) L.push('Lighting: ' + light.map(function(x){return x[1]}).join('; ') + '.');
+  if(frame.length) L.push('Framing: ' + frame.map(function(x){return x[1]}).join('; ') + '.');
+  var subj = [];
+  if(model.length) subj.push(model.map(function(x){return x[1]}).join(', '));
+  if(pose.length) subj.push(pose.map(function(x){return x[1]}).join(', '));
+  L.push('Subject: ' + (subj.length ? subj.join(', ') : 'male model') + '.');
+  var wear = [];
+  if(collar.length) wear.push(collar.map(function(x){return x[1]}).join(', '));
+  if(placket.length) wear.push(placket.map(function(x){return x[1]}).join(', '));
+  if(fit.length) wear.push(fit.map(function(x){return x[1]}).join(', '));
+  if(fabric.length) wear.push(fabric.map(function(x){return x[1]}).join(', '));
+  L.push('Garment: men\'s short-sleeve polo shirt' + (wear.length ? ', ' + wear.join(', ') : '') + '.');
+  L.push('Quality: high resolution e-commerce hero image, 3:4 vertical, sharp focus on collar and placket.');
+  if(retouch.length) L.push(retouch.map(function(x){return x[1]}).join(', ') + '.');
+  document.getElementById('outEN').textContent = L.join('\n');
+
+  var C = [];
+  C.push('男士 POLO 衫商品拍摄。');
+  if(bg.length) C.push('背景：' + bg.map(function(x){return x[2]}).join('、') + '。');
+  else C.push(isA ? '背景：纯白无缝影棚。' : '背景：真实或半景环境。');
+  if(light.length) C.push('光线：' + light.map(function(x){return x[2]}).join('、') + '。');
+  if(frame.length) C.push('景别：' + frame.map(function(x){return x[2]}).join('、') + '。');
+  var s2 = [];
+  if(model.length) s2.push(model.map(function(x){return x[2]}).join('、'));
+  if(pose.length) s2.push(pose.map(function(x){return x[2]}).join('、'));
+  C.push('主体：' + (s2.length ? s2.join('，') : '男模') + '。');
+  var w2 = [];
+  if(collar.length) w2.push(collar.map(function(x){return x[2]}).join('、'));
+  if(placket.length) w2.push(placket.map(function(x){return x[2]}).join('、'));
+  if(fit.length) w2.push(fit.map(function(x){return x[2]}).join('、'));
+  if(fabric.length) w2.push(fabric.map(function(x){return x[2]}).join('、'));
+  C.push('服装：男士短袖 POLO 衫' + (w2.length ? '，' + w2.join('、') : '') + '。');
+  C.push('要求：高清电商主图，3:4 竖版，领口与门襟对焦清晰。');
+  if(retouch.length) C.push(retouch.map(function(x){return x[2]}).join('、') + '。');
+  document.getElementById('outCN').textContent = C.join('\n');
+}
+
+function clearAll(){
+  sel = {};
+  document.querySelectorAll('.option-tag.selected').forEach(function(t){ t.classList.remove('selected'); });
+  document.getElementById('outEN').textContent = 'Select options above, then click Generate.';
+  document.getElementById('outCN').textContent = '请在上方选择维度后点击「生成指令」。';
+}
+
+function copyPrompt(){
+  var txt = document.getElementById('outEN').textContent + '\n---\n' + document.getElementById('outCN').textContent;
+  if(navigator.clipboard){ navigator.clipboard.writeText(txt); }
+  else { var ta=document.createElement('textarea'); ta.value=txt; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); }
+}
+</script>
+</body>
+</html>
