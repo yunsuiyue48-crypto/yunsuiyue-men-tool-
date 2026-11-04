@@ -197,3 +197,12 @@ tr:last-child td{border-bottom:none}
 .b-plus{background:#F6E7EA;color:#8A3B52}
 .b-note{background:transparent;color:var(--gold);border:1px dashed var(--gold);font-weight:600}
 .path-sub{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.7}
+
+/* ---------- 路径对接人标注（类目指引） ---------- */
+.path-owner{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:9px;padding:5px 10px;
+  font-size:12px;color:var(--rust);background:var(--rust-soft);border-radius:7px;line-height:1.7;width:fit-content}
+.path-owner b{font-weight:700;letter-spacing:.01em}
+.path-owner .vx{color:var(--muted);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11.5px}
+
+/* ---------- 首页速览表的对接人小注 ---------- */
+.owner-inline{display:inline-block;margin-top:4px;font-size:11.5px;color:var(--rust);letter-spacing:.02em}
